@@ -1,0 +1,11 @@
+footer {
+    background-color: #495E57;
+    margin-top: auto;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+    }
+}
