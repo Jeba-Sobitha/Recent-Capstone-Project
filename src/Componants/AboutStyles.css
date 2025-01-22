@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text:wght@500&display=swap');
+
+.home-container {
+    padding: 50px 20px; /* Add horizontal padding for better spacing */
+    background-color: #495E57;
+    color: white;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+    flex-wrap: wrap;/* Enable wrapping for smaller screens */
+    padding: 20px 0;
+    position: relative;
+}
+.left-content {
+    flex: 1;/* Take up available space */
+    max-width: 500px; /* Restrict maximum width for better scaling */
+    text-align: left;
+}
+.left-content h1 {
+    color: #F4CE14;
+    font-family: "Markazi Text", serif;
+    font-size: 3em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.left-content h2 {
+    font-family: "Karla", serif;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.left-content p {
+    color: rgba(255, 254, 254, 0.763);
+}
+.btn {
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #F4CE14;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #d4b013;
+}
+
+/* Image Styles */
+.image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+    text-align: center;
+    align-items: center;
+}
+.image img {
+    width: 100%; /*make img responsive*/
+    height: auto;
+    max-width: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    /* margin-bottom: -40px; */
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: row;
+        text-align: center;
+    }
+    .left-content {
+        max-width: 70%;
+    }
+    .left-content h1 {
+        font-size: 2.5rem;
+    }
+    .image {
+        max-width: 30%;
+    }
+    .image img {
+        max-width: 100%;
+    }
+    .btn {
+        padding: 10px 15px;
+    }
+}
+@media (max-width:600px) {
+    .container {
+        flex-direction: row;
+        gap: 10px;
+    }
+    .image img {
+        width: 100%;
+        max-width: 200px;
+    }
+    .image {
+        max-width: 35%;
+    }
+}
+@media (max-width: 400px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .image {
+        max-width: 100%;
+    }
+    .image img {
+        width: 100%;
+        max-width: 250px;
+    }
+}

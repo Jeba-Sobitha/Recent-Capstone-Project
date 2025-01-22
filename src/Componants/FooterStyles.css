@@ -1,11 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text:wght@500&display=swap');
+
 footer {
     background-color: #495E57;
     margin-top: auto;
     padding: 20px;
+    color: white;
+    font-family: "Karla", serif;
+    font-weight: 400;
 }
-
+.section-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.image-container img {
+    width: 250px;
+    height: 350px;
+    object-fit: cover;
+}
+.section1 h2 {
+    padding: 10px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.section1 ul {
+    text-align: left;
+    padding-left: 0;
+}
+.section1 ul a {
+    text-decoration: none;
+    color: white;
+    gap: 20px;
+}
+.section1 ul li {
+    list-style: none;
+    padding: 5px;
+}
+.section ul a:hover {
+    color: #F4CE14;
+}
+.section2 h2 {
+    padding: 10px;
+    text-align: left;
+}
+.section2 ul {
+    text-align: left;
+    padding-left: 0;
+}
+.section2 ul a {
+    text-decoration: none;
+    color: white;
+    gap: 20px;
+}
+.section2 ul li {
+    list-style: none;
+    padding: 5px;
+}
+.section3 h2 {
+    padding: 10px;
+    text-align: left;
+}
+.section3 ul {
+    text-align: left;
+    padding-left: 0;
+}
+.section3 ul a {
+    text-decoration: none;
+    color: white;
+    gap: 20px;
+}
+.section3 ul li {
+    list-style: none;
+    padding: 5px;
+}
 @media (max-width: 768px) {
-    footer {
-        padding: 15px;
+    .section-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+    .section1, .section2, .section3 {
+        padding: 10px        ;
+    }
+    footer p {
+        text-align: center;
+        font-size: 0.9rem;
+        /* padding: 15px; */
+        margin-top: 20px;
     }
 }

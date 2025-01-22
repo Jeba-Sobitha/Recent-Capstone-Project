@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import './HeaderStyles.css';
 import logo from '../assets/logo.png';
 import Hamburger from 'hamburger-react';
+import { Link } from 'react-router-dom';
+// import HomePage from './HomePage';
+// import About from './About';
+// import Specials from './Specials';
+// import BookingPage from './BookingPage';
 
 export default function Header() {
     const [isOpen, setOpen] = useState(false);
@@ -20,14 +25,19 @@ export default function Header() {
         </div>
         <nav className={isOpen ? 'nav-menu open' : 'nav-menu'}>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#reservation">Reservation</a></li>
-                <li><a href="#login">Login</a></li>
-                <li><a href="#order-online">Order-Online</a></li>
+                <li><Link to="/home">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/menu">Menu</Link></li>
+                <li><Link to="/booking">Reservation</Link></li>
+                <li><Link to="#login">Login</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
             </ul>
         </nav>
+        {/* Sections for Scrolling
+      <div id="home"><HomePage /></div>
+      <div id="about"><About /></div>
+      <div id="specials"><Specials /></div>
+      <div id="booking"><BookingPage /></div> */}
     </header>
   )
 }
