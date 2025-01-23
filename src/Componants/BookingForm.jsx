@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./BookingFormStyles.css";
 
-export default function BookingForm({ availableTimes, dispatch }) {
+export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
@@ -11,6 +11,16 @@ export default function BookingForm({ availableTimes, dispatch }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    const formData = {
+      name,
+      email,
+      date,
+      time,
+      guests,
+      occassion
+    };
+    submitForm(formData);
+
     console.log("Form has been submitted", {
       name,
       email,
@@ -85,7 +95,7 @@ export default function BookingForm({ availableTimes, dispatch }) {
             <option value="" disabled>
               Select Time
             </option>
-            {availableTimes.map((time, index) => (
+            {(availableTimes || []).map((time, index) => (
               <option key={index} value={time}>
                 {time}
               </option>
