@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "./BookingFormStyles.css";
 
-export default function BookingForm() {
+export default function BookingForm({ availableTimes, dispatch }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState("");
   const [occassion, setOccassion] = useState("");
-  const [availableTimes] = useState(["17:00", "18:00", "19:00", "20:00"]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,7 +19,24 @@ export default function BookingForm() {
       guests,
       occassion,
     });
-    alert("Congratulations! You have reserved!");
+
+    dispatch({type: "BOOK_SLOT", payload: time})
+
+    alert(
+      `Congratulations ${name}! You have booked a table on ${date}, at ${time} and with ${guests} people for ${occassion} Party!`
+    );
+    setName("");
+    setEmail("");
+    setDate("");
+    setTime("");
+    setGuests("");
+    setOccassion("");
+  }
+
+  function handleDateChange(e) {
+    const selectedDate = e.target.value;
+    setDate(selectedDate);
+    dispatch({ type: "UPDATE_DATE", payload: selectedDate});
   }
   return (
     <fieldset className="booking-container">
@@ -51,7 +67,7 @@ export default function BookingForm() {
           <label htmlFor="date">Date: </label>
           <input
             value={date}
-            onChange={(e) => setDate(e.target.value)}
+            onChange={handleDateChange}
             type="date"
             id="date"
             required
@@ -66,7 +82,9 @@ export default function BookingForm() {
             id="time"
             required
           >
-            <option value="" disabled>Select Time</option>
+            <option value="" disabled>
+              Select Time
+            </option>
             {availableTimes.map((time, index) => (
               <option key={index} value={time}>
                 {time}
@@ -98,7 +116,9 @@ export default function BookingForm() {
             id="occassion"
             required
           >
-            <option value="" disabled>Select Occassion</option>
+            <option value="" disabled>
+              Select Occassion
+            </option>
             <option value="Birthday">Birthday</option>
             <option value="Anniversary">Anniversary</option>
           </select>

@@ -2,9 +2,8 @@
     padding: 50px;
     margin: 0 auto;
     max-width: 800px;
-    /* margin-left: 100px;
-    margin-right: 100px; */
     margin-bottom: 5%;
+    width: 90%;
 }
 .form {
     display: flex;
@@ -18,7 +17,7 @@
     gap: 10px;
 }
 .row1 label {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     flex: 1;    
 }
@@ -28,7 +27,7 @@
     padding: 20px;
 } */
 .row1 input, .row1 select {
-    padding: 10px 20px;
+    padding: 10px 15px;
     margin: 0;
     border-style: solid;
     border-radius: 10px;
@@ -64,3 +63,8 @@
         align-items: center;
     }
 }
+@media (min-width: 1024px) {
+    .booking-container {
+      width: 70%; /* Adjust for larger screens */
+    }
+  }

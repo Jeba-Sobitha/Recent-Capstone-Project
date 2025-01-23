@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header>
         <div className='logo'>
-        <img src={logo} alt="Little lemon Logo" />
+          <Link to="/" ><img src={logo} alt="Little lemon Logo" /></Link>
         </div>
         <div className='hamburger'>
             <Hamburger
@@ -25,12 +25,12 @@ export default function Header() {
         </div>
         <nav className={isOpen ? 'nav-menu open' : 'nav-menu'}>
             <ul>
-                <li><Link to="/home">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/menu">Menu</Link></li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/#about">About</Link></li>
+                <li><Link to="/#menu">Menu</Link></li>
                 <li><Link to="/booking">Reservation</Link></li>
-                <li><Link to="#login">Login</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
+                <li><Link to="/#login">Login</Link></li>
+                <li><Link to="/#contact">Contact</Link></li>
             </ul>
         </nav>
         {/* Sections for Scrolling
