@@ -13,17 +13,17 @@ export default function Header() {
 
   return (
     <header>
-        <div className='logo'>
+        <section className='logo'>
           <Link to="/" ><img src={logo} alt="Little lemon Logo" /></Link>
-        </div>
-        <div className='hamburger'>
+        </section>
+        <section className='hamburger'>
             <Hamburger
             toggled={isOpen}
             toggle={setOpen}
             size={25}
             duration={0.5} />
-        </div>
-        <nav className={isOpen ? 'nav-menu open' : 'nav-menu'}>
+        </section>
+        <nav role="navigation" className={isOpen ? 'nav-menu open' : 'nav-menu'}>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/#about">About</Link></li>

@@ -31,7 +31,7 @@ export default function CustomersSay() {
   return (
     <div className='customers-container'>
       <h2 className='customers-heading'>What people say about us!!!</h2>
-      <div className='image-lists'>
+      <section className='image-lists'>
             {CustomersData.map((customer) => (
                 <div>
                     <img src={customer.image} alt='customer 1' className='image'/>
@@ -43,7 +43,7 @@ export default function CustomersSay() {
                         </div>
                 </div>
             ))}
-        </div>
+        </section>
     </div>
   )
 }

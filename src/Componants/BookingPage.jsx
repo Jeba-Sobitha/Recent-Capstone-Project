@@ -14,12 +14,12 @@ import { useNavigate } from "react-router-dom";
 // }
 
 export function initializeTimes() {
-  const today = new Date();
-  const times = fetchAPI(today);
+  // const today = new Date();
+  // const times = fetchAPI(today);
   return {
-    availableTimes: times,
+    availableTimes: [],
     bookedTimes: {},
-    selectedDate: today,
+    selectedDate: new Date(),
   };
 }
 

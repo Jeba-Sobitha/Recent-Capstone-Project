@@ -11,7 +11,7 @@ export default function Footer() {
         </section>
         <section className="section1">
           <h2>SITEMAP</h2>
-          <nav>
+          <nav role="navigation">
             <ul>
               <li>
                 <a href="#home">Home</a>

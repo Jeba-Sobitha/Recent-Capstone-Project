@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./BookingFormStyles.css";
 
 export default function BookingForm({ availableTimes, dispatch, submitForm }) {
@@ -8,6 +8,20 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   const [time, setTime] = useState("");
   const [guests, setGuests] = useState("");
   const [occassion, setOccassion] = useState("");
+
+  const [formValid, setFormValid] =useState(false);
+
+  useEffect(() => {
+    const isFormValid =
+    name.trim().length >= 2 &&
+    /^[A-Za-z\s]+$/.test(name) &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) &&
+    date &&
+    time &&
+    guests >= 1 && guests <= 10 &&
+    occassion;
+    setFormValid(isFormValid);
+  }, [name, email, date, time, guests, occassion]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,15 +34,6 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
       occassion
     };
     submitForm(formData);
-
-    console.log("Form has been submitted", {
-      name,
-      email,
-      date,
-      time,
-      guests,
-      occassion,
-    });
 
     dispatch({type: "BOOK_SLOT", payload: time})
 
@@ -51,18 +56,21 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
   return (
     <fieldset className="booking-container">
       <form onSubmit={handleSubmit} className="form">
-        <div className="row1">
+        <section className="row1">
           <label htmlFor="name">Name: </label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             type="text"
             id="name"
+            minLength={2}
+            maxLength={50}
+            pattern="^[A-Za-z\s]+$"
             required
           />
-        </div>
+        </section>
 
-        <div className="row1">
+        <section className="row1">
           <label htmlFor="email">Email: </label>
           <input
             value={email}
@@ -71,9 +79,9 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
             id="email"
             required
           />
-        </div>
+        </section>
 
-        <div className="row1">
+        <section className="row1">
           <label htmlFor="date">Date: </label>
           <input
             value={date}
@@ -82,9 +90,9 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
             id="date"
             required
           />
-        </div>
+        </section>
 
-        <div className="row1">
+        <section className="row1">
           <label htmlFor="time">Time : </label>
           <select
             value={time}
@@ -101,9 +109,9 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
               </option>
             ))}
           </select>
-        </div>
+        </section>
 
-        <div className="row1">
+        <section className="row1">
           <label htmlFor="guests">Number of Guests : </label>
           <input
             value={guests}
@@ -115,9 +123,9 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
             max={10}
             required
           />
-        </div>
+        </section>
 
-        <div className="row1">
+        <section className="row1">
           <label htmlFor="occassion">Occassion : </label>
           <select
             value={occassion}
@@ -132,8 +140,8 @@ export default function BookingForm({ availableTimes, dispatch, submitForm }) {
             <option value="Birthday">Birthday</option>
             <option value="Anniversary">Anniversary</option>
           </select>
-        </div>
-        <button type="submit" className="button">
+        </section>
+        <button aria-label="Submit Form" disabled={!formValid} className="button">
           Submit
         </button>
       </form>

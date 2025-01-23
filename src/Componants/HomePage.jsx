@@ -8,13 +8,13 @@ import Footer from './Footer'
 
 export default function HomePage() {
   return (
-    <div className='Home-Container'>
+    <main className='Home-Container'>
         {/* <Header /> */}
         <About />
         <Specials  />
         <CustomersSay />
         <ChicagoStory />
         <Footer />
-    </div>
+    </main>
   )
 }

@@ -13,17 +13,17 @@ export default function About() {
   return (
     <section className="home-container">
     <div className="container">
-      <div className="left-content">
+      <section className="left-content">
       <h1>Little Lemon</h1>
       <h2>Chicago</h2>
       <p>
         We are a family owned Mediterranean restaurant, focused on traditional
         recipes served with a modern twist.</p>
         <button onClick={handleReservationClick} className="btn">Reserve a Table</button>
-      </div>
-      <div className="image">
+      </section>
+      <section className="image">
         <img src={restaurantfood} alt="Restaurant Food" />
-      </div>
+      </section>
     </div>
     </section>
   );
